@@ -13,6 +13,7 @@ import useTokenBalance from '../../hooks/use-token-balance'
 import TxConfirm from '../tx-confirm/tx-confirm.view'
 import useSwap from '../../hooks/use-swap'
 import useDeposit from '../../hooks/use-deposit'
+import useDappNodeDeposit from '../../hooks/use-dappnode-deposit'
 import TxPending from '../tx-pending/tx-pending.view'
 import TxOverview from '../tx-overview/tx-overview.view'
 import NetworkError from '../network-error/network-error.view'
@@ -39,10 +40,14 @@ function Stepper () {
   const {
     deposit, txData: depositTxData, depositData, setDepositData
   } = useDeposit(wallet, toTokenInfo)
+  const {
+    dappNodeDeposit, txData: dappNodeDepositTxData, dappNodeDepositData, setDappNodeDepositData
+  } = useDappNodeDeposit(wallet, toTokenInfo)
 
   const tabs = [
     { name: 'Deposit', step: Step.Deposit },
-    { name: 'Swap', step: Step.Swap }
+    { name: 'Swap', step: Step.Swap },
+    { name: 'DAppNode', step: Step.DappNodeDeposit }
   ]
   const [activeTab, setActiveTab] = useState(tabs[0].name)
 
@@ -156,6 +161,19 @@ function Stepper () {
                   onGoBack={() => window.location.reload()}
                   onDisconnectWallet={disconnectWallet}
                   isMetamask={isMetamask}
+                />
+              )
+            }
+            case Step.DappNodeDeposit: {
+              return (
+                <Deposit
+                  wallet={wallet}
+                  tokenInfo={toTokenInfo}
+                  balance={toTokenBalance}
+                  onDisconnectWallet={disconnectWallet}
+                  onGoNext={() => switchStep(Step.DepositRisksInfo)}
+                  depositData={dappNodeDepositData}
+                  setDepositData={setDappNodeDepositData}
                 />
               )
             }
