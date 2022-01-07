@@ -59,7 +59,7 @@ function useDappNodeDeposit(wallet, tokenInfo) {
     const depositContract = new Contract(depositAddress, depositABI, wallet.provider)
 
     console.log('Fetching existing deposits')
-    const fromBlock = parseInt(process.env.REACT_APP_DAPPNODE_DEPOSIT_START_BLOCK_NUMBER, 10) || 0
+    const fromBlock = parseInt(process.env.REACT_APP_DEPOSIT_START_BLOCK_NUMBER, 10) || 0
     const toBlock = await wallet.provider.getBlockNumber()
     const events = await getPastLogs(depositContract, 'DepositEvent', { fromBlock, toBlock })
     console.log(`Found ${events.length} existing deposits`)
@@ -91,9 +91,18 @@ function useDappNodeDeposit(wallet, tokenInfo) {
   const dappNodeDeposit = useCallback(async () => {
     try {
       setTxData({ status: 'loading' })
+
       // DAppNode incentive deposit contract: https://blockscout.com/xdai/mainnet/address/0xCc693171b8279ed8f83DD6d7f54eA4d20671F2c8/write-proxy
       // Must be called with the same tx data as the deposit contract
-      const dappnodeDeposit = new Contract(process.env.REACT_APP_DAPPNODE_DEPOSIT_CONTRACT_ADDRESS, dappnodeDepositABI, wallet.provider.getSigner(0))
+      const dappnodeDepositContract = new Contract(process.env.REACT_APP_DAPPNODE_DEPOSIT_CONTRACT_ADDRESS, dappnodeDepositABI, wallet.provider.getSigner(0))
+
+      // Check requirements: address is whitelisted and must not be expired
+
+     // addressToIncentive: https://blockscout.com/xdai/mainnet/address/0xCc693171b8279ed8f83DD6d7f54eA4d20671F2c8/read-proxy
+      const addressToIncentive = await dappnodeDepositContract.addressToIncentive(wallet.address) // returns struct {endTime, isClaimed}
+
+      const isAddressWhitelisted = isAddressWhitelisted()
+      const isAddressExpired = isAddressExpired()
 
       console.log(`Sending deposit transaction for ${deposits.length} deposits`)
       let data = '0x'
@@ -103,7 +112,7 @@ function useDappNodeDeposit(wallet, tokenInfo) {
         data += deposit.signature
         data += deposit.deposit_data_root
       })
-      const tx = await dappnodeDeposit.claimIncentive(data)
+      const tx = await dappnodeDepositContract.claimIncentive(data)
       setTxData({ status: 'pending', data: tx })
       await tx.wait()
       setTxData({ status: 'successful', data: tx })
@@ -119,6 +128,14 @@ function useDappNodeDeposit(wallet, tokenInfo) {
   }, [wallet, deposits])
 
   return { dappNodeDeposit, validate, txData, dappNodeDepositData: { deposits, filename }, setDappNodeDepositData }
+}
+
+function isAddressWhitelisted() {
+
+}
+
+function isAddressExpired() {
+
 }
 
 async function getPastLogs(contract, event, { fromBlock, toBlock }) {

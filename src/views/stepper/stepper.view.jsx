@@ -75,7 +75,7 @@ function Stepper () {
               key={tab.name}
               className={activeTab === tab.name ? classes.tabActive : classes.tab}
               onClick={() => selectTab(tab)}
-              disabled={![Step.Swap, Step.Deposit, Step.Overview, Step.DepositOverview].includes(step)}
+              disabled={![Step.Swap, Step.Deposit, Step.DappNodeDeposit, Step.Overview, Step.DepositOverview].includes(step)}
             >
               <span className={classes.tabName}>{tab.name}</span>
             </button>
@@ -174,6 +174,7 @@ function Stepper () {
                   onGoNext={() => switchStep(Step.DepositRisksInfo)}
                   depositData={dappNodeDepositData}
                   setDepositData={setDappNodeDepositData}
+                  dappNode={true}
                 />
               )
             }
@@ -187,6 +188,7 @@ function Stepper () {
                   onGoNext={() => switchStep(Step.DepositRisksInfo)}
                   depositData={depositData}
                   setDepositData={setDepositData}
+                  dappNode={false}
                 />
               )
             }
@@ -194,7 +196,11 @@ function Stepper () {
               return (
                 <DepositRisksInfo
                   deposit={() => {
-                    deposit()
+                    if(activeTab === "DAppNode") {
+                      dappNodeDeposit()
+                    } else {
+                      deposit()
+                    }
                     switchStep(Step.DepositConfirm)
                   }}
                   wallet={wallet}
@@ -208,7 +214,7 @@ function Stepper () {
                   wallet={wallet}
                   tokenInfo={toTokenInfo}
                   balance={toTokenBalance}
-                  txData={depositTxData}
+                  txData={activeTab === "DAppNode" ? dappNodeDepositTxData : depositTxData}
                   onGoBack={() => switchStep(Step.Deposit)}
                   onGoToPendingStep={() => switchStep(Step.DepositPending)}
                 />
@@ -220,7 +226,7 @@ function Stepper () {
                   wallet={wallet}
                   tokenInfo={toTokenInfo}
                   balance={toTokenBalance}
-                  txData={depositTxData}
+                  txData={activeTab === "DAppNode" ? dappNodeDepositTxData : depositTxData}
                   onGoBack={() => switchStep(Step.Deposit)}
                   onGoToOverviewStep={() => switchStep(Step.DepositOverview)}
                 />
@@ -232,7 +238,7 @@ function Stepper () {
                   wallet={wallet}
                   tokenInfo={toTokenInfo}
                   balance={toTokenBalance}
-                  txData={depositTxData}
+                  txData={activeTab === "DAppNode" ? dappNodeDepositTxData : depositTxData}
                   onGoBack={() => window.location.reload()}
                   onDisconnectWallet={disconnectWallet}
                   isMetamask={isMetamask}
