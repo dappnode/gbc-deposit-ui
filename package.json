@@ -1,5 +1,6 @@
 {
   "name": "gbc-deposit-ui",
+  "homepage": "https://dappnode.github.io/gbc-deposit-ui",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
