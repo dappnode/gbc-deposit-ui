@@ -101,8 +101,12 @@ function useDappNodeDeposit(wallet, tokenInfo) {
      // addressToIncentive: https://blockscout.com/xdai/mainnet/address/0xCc693171b8279ed8f83DD6d7f54eA4d20671F2c8/read-proxy
       const addressToIncentive = await dappnodeDepositContract.addressToIncentive(wallet.address) // returns struct {endTime, isClaimed}
 
-      const isAddressWhitelisted = isAddressWhitelisted()
-      const isAddressExpired = isAddressExpired()
+      const isClaimed = addressToIncentive.isClaimed
+      const endTime = parseInt(addressToIncentive.endTime)
+
+      if (isClaimed) throw Error("Address has already been claimed")
+      if (endTime === 0) throw Error("Address is not whitelisted")
+      if (endTime < Date.now()) throw Error("Address has expired")
 
       console.log(`Sending deposit transaction for ${deposits.length} deposits`)
       let data = '0x'
@@ -128,14 +132,6 @@ function useDappNodeDeposit(wallet, tokenInfo) {
   }, [wallet, deposits])
 
   return { dappNodeDeposit, validate, txData, dappNodeDepositData: { deposits, filename }, setDappNodeDepositData }
-}
-
-function isAddressWhitelisted() {
-
-}
-
-function isAddressExpired() {
-
 }
 
 async function getPastLogs(contract, event, { fromBlock, toBlock }) {
