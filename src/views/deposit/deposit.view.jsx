@@ -83,7 +83,9 @@ function Deposit ({ wallet, onDisconnectWallet, tokenInfo, balance, depositData,
       </>
     )
   } else {
-    component = <Dropzone onDrop={onDrop} />
+    component = <Dropzone
+      onDrop={onDrop}
+      dappNode={dappNode} />
   }
   return (
     <div className={classes.container}>
