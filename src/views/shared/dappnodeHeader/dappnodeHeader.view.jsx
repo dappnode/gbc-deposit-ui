@@ -1,5 +1,3 @@
-import { formatUnits } from 'ethers/lib/utils'
-
 import useDappnodeHeaderStyles from './dappnodeHeader.styles'
 import { ReactComponent as ArrowLeft } from '../../../images/arrow-left.svg'
 import { ReactComponent as CrossIcon } from '../../../images/cross-icon.svg'
@@ -44,11 +42,8 @@ function DappnodeHeader ({
       {address && (
         <p className={classes.address}>{getPartiallyHiddenEthereumAddress(address)}</p>
       )}
-      {balance && (
-        <p className={classes.balance}>Balance: {Number(formatUnits(balance, tokenInfo.decimals))} {tokenInfo.symbol}</p>
-      )}
       {dappnodeWhitelist && (
-          <p className={classes.dappnodeWhitelist}>Whitelisted: {dappnodeWhitelist}</p>
+          <p className={classes.dappnodeWhitelist}>Whitelisted: {dappnodeWhitelist.isWhitelisted}. {dappnodeWhitelist.message}</p>
     )}
       {onDisconnectWallet && (
         <button className={classes.disconnectButton} onClick={onDisconnectWallet}>Disconnect</button>

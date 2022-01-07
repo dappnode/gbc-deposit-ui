@@ -14,7 +14,7 @@ const useDappnodeHeaderStyles = createUseStyles((theme) => ({
     fontSize: theme.spacing(3),
     fontWeight: theme.fontWeights.bold
   },
-  address: {
+  dappnodeWhitelist: {
     marginTop: theme.spacing(2),
     fontSize: theme.spacing(2.5),
     color: theme.palette.grey.dark

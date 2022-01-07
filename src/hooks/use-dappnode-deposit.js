@@ -86,7 +86,7 @@ function useDappNodeDeposit(wallet, tokenInfo) {
 
     if (isClaimed) throw Error('Address has already been claimed')
     if (endTime === 0) throw Error('Address is not whitelisted')
-    if (endTime < Date.now()) throw Error('Address has expired')
+    if (endTime < Math.floor(Date.now()/1000)) throw Error('Address has expired')
   }, [wallet, tokenInfo])
 
   const setDappNodeDepositData = useCallback(async (fileData, filename) => {

@@ -17,8 +17,8 @@ function useDappnodeWhitelist (address, provider) {
       const endTime = parseInt(addressToIncentive.endTime)
 
       if (isClaimed) return { isWhitelisted: false, message: 'Address has already been claimed' }
-      if (endTime === 0) return { isWhitelisted: false, message: 'Address is not whitelisted' }
-      if (endTime < Date.now()) return { isWhitelisted: false, message: 'Address has expired' }
+      if (endTime !== 0) return { isWhitelisted: false, message: 'Address is not whitelisted' }
+      if (endTime < Math.floor(Date.now()/1000)) return { isWhitelisted: false, message: 'Address has expired' }
       return { isWhitelisted: true, message: 'Address is whitelisted' }
     }
 
