@@ -19,6 +19,16 @@ jobs:
         run: |
           npm install
           npm run build
+        env:
+          REACT_APP_NETWORK_ID: ${{ secrets.REACT_APP_NETWORK_ID }}
+          REACT_APP_RPC_URL: ${{ secrets.REACT_APP_RPC_URL }}
+          REACT_APP_WRAPPER_CONTRACT_ADDRESS: ${{ secrets.REACT_APP_WRAPPER_CONTRACT_ADDRESS }}
+          REACT_APP_WRAPPED_TOKEN_CONTRACT_ADDRESS: ${{ secrets.REACT_APP_WRAPPED_TOKEN_CONTRACT_ADDRESS }}
+          REACT_APP_TOKEN_CONTRACT_ADDRESS: ${{ secrets.REACT_APP_TOKEN_CONTRACT_ADDRESS }}
+          REACT_APP_DEPOSIT_CONTRACT_ADDRESS: ${{ secrets.REACT_APP_DEPOSIT_CONTRACT_ADDRESS }}
+          REACT_APP_DEPOSIT_START_BLOCK_NUMBER: ${{ secrets.REACT_APP_DEPOSIT_START_BLOCK_NUMBER }}
+          REACT_APP_DAPPNODE_DEPOSIT_CONTRACT_ADDRESS: ${{ secrets.REACT_APP_DAPPNODE_DEPOSIT_CONTRACT_ADDRESS }}
+          REACT_APP_USE_PERMIT: ${{ secrets.REACT_APP_USE_PERMIT }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
