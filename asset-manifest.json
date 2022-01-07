@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/gbc-deposit-ui/static/js/main.486d8f97.chunk.js",
-    "main.js.map": "/gbc-deposit-ui/static/js/main.486d8f97.chunk.js.map",
+    "main.js": "/gbc-deposit-ui/static/js/main.0d29356b.chunk.js",
+    "main.js.map": "/gbc-deposit-ui/static/js/main.0d29356b.chunk.js.map",
     "runtime-main.js": "/gbc-deposit-ui/static/js/runtime-main.0413fda3.js",
     "runtime-main.js.map": "/gbc-deposit-ui/static/js/runtime-main.0413fda3.js.map",
-    "static/js/2.3cc92dc0.chunk.js": "/gbc-deposit-ui/static/js/2.3cc92dc0.chunk.js",
-    "static/js/2.3cc92dc0.chunk.js.map": "/gbc-deposit-ui/static/js/2.3cc92dc0.chunk.js.map",
+    "static/js/2.b787efe2.chunk.js": "/gbc-deposit-ui/static/js/2.b787efe2.chunk.js",
+    "static/js/2.b787efe2.chunk.js.map": "/gbc-deposit-ui/static/js/2.b787efe2.chunk.js.map",
     "static/js/3.93704fa1.chunk.js": "/gbc-deposit-ui/static/js/3.93704fa1.chunk.js",
     "static/js/3.93704fa1.chunk.js.map": "/gbc-deposit-ui/static/js/3.93704fa1.chunk.js.map",
     "index.html": "/gbc-deposit-ui/index.html",
-    "static/js/2.3cc92dc0.chunk.js.LICENSE.txt": "/gbc-deposit-ui/static/js/2.3cc92dc0.chunk.js.LICENSE.txt",
+    "static/js/2.b787efe2.chunk.js.LICENSE.txt": "/gbc-deposit-ui/static/js/2.b787efe2.chunk.js.LICENSE.txt",
     "static/media/arrow-left.526ad39f.svg": "/gbc-deposit-ui/static/media/arrow-left.526ad39f.svg",
     "static/media/check-icon-small.cf4386c3.svg": "/gbc-deposit-ui/static/media/check-icon-small.cf4386c3.svg",
     "static/media/check-icon.90ea2740.svg": "/gbc-deposit-ui/static/media/check-icon.90ea2740.svg",
@@ -26,7 +26,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.0413fda3.js",
-    "static/js/2.3cc92dc0.chunk.js",
-    "static/js/main.486d8f97.chunk.js"
+    "static/js/2.b787efe2.chunk.js",
+    "static/js/main.0d29356b.chunk.js"
   ]
 }
