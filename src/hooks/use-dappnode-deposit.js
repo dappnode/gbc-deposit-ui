@@ -92,13 +92,13 @@ function useDappNodeDeposit(wallet, tokenInfo) {
     try {
       setTxData({ status: 'loading' })
 
-      // DAppNode incentive deposit contract: https://blockscout.com/xdai/mainnet/address/0xCc693171b8279ed8f83DD6d7f54eA4d20671F2c8/write-proxy
+      // DAppNode incentive deposit contract: https://blockscout.com/xdai/mainnet/address/0x6C68322cf55f5f025F2aebd93a28761182d077c3/write-proxy
       // Must be called with the same tx data as the deposit contract
       const dappnodeDepositContract = new Contract(process.env.REACT_APP_DAPPNODE_DEPOSIT_CONTRACT_ADDRESS, dappnodeDepositABI, wallet.provider.getSigner(0))
 
       // Check requirements: address is whitelisted and must not be expired
 
-     // addressToIncentive: https://blockscout.com/xdai/mainnet/address/0xCc693171b8279ed8f83DD6d7f54eA4d20671F2c8/read-proxy
+     // addressToIncentive: https://blockscout.com/xdai/mainnet/address/0x6C68322cf55f5f025F2aebd93a28761182d077c3/contracts
       const addressToIncentive = await dappnodeDepositContract.addressToIncentive(wallet.address) // returns struct {endTime, isClaimed}
 
       const isClaimed = addressToIncentive.isClaimed
