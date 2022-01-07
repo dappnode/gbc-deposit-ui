@@ -143,7 +143,7 @@ function useWallet() {
       }
     }
     connect();
-  }, []);
+  }, [disconnectWallet, loadWallet]);
 
   return ({
     wallet,
