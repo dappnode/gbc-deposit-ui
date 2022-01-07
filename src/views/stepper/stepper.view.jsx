@@ -23,6 +23,7 @@ import DepositTxConfirm from '../deposit-tx-confirm/deposit-tx-confirm.view'
 import DepositTxPending from '../deposit-tx-pending/deposit-tx-pending.view'
 import DepositTxOverview from '../deposit-tx-overview/deposit-tx-overview.view'
 import DepositRisksInfo from '../deposit-risks-info/deposit-risks-info.view'
+import useDappnodeWhitelist from '../../hooks/use-dappnode-whitelist'
 
 function Stepper () {
   const classes = useStepperStyles()
@@ -35,6 +36,7 @@ function Stepper () {
   const toTokenInfo = useTokenInfo(process.env.REACT_APP_WRAPPED_TOKEN_CONTRACT_ADDRESS, wallet)
   const toTokenBalance = useTokenBalance(wallet?.address, toTokenContract)
   const fromTokenBalance = useTokenBalance(wallet?.address, fromTokenContract)
+  const dappnodeWhitelist = useDappnodeWhitelist(process.env.REACT_APP_DAPPNODE_CONTRACT_ADDRESS, wallet)
   const { step, switchStep } = useStep()
   const { swap, data: swapData, resetData: resetSwapData } = useSwap()
   const {
@@ -175,6 +177,7 @@ function Stepper () {
                   depositData={dappNodeDepositData}
                   setDepositData={setDappNodeDepositData}
                   dappNode={true}
+                  dappnodeWhitelist={dappnodeWhitelist}
                 />
               )
             }
@@ -189,6 +192,7 @@ function Stepper () {
                   depositData={depositData}
                   setDepositData={setDepositData}
                   dappNode={false}
+                  dappnodeWhitelist={dappnodeWhitelist}
                 />
               )
             }

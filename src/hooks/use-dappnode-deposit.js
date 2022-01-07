@@ -72,7 +72,22 @@ function useDappNodeDeposit(wallet, tokenInfo) {
         `)
       }
     }
-  }, [wallet, tokenInfo]);
+
+    // DAppNode incentive deposit contract: https://blockscout.com/xdai/mainnet/address/0x6C68322cf55f5f025F2aebd93a28761182d077c3/write-proxy
+    // Must be called with the same tx data as the deposit contract
+    const dappnodeDepositContract = new Contract(process.env.REACT_APP_DAPPNODE_DEPOSIT_CONTRACT_ADDRESS, dappnodeDepositABI, wallet.provider.getSigner(0))
+
+    // Check requirements: address is whitelisted and must not be expired
+    // addressToIncentive: https://blockscout.com/xdai/mainnet/address/0x6C68322cf55f5f025F2aebd93a28761182d077c3/contracts
+    const addressToIncentive = await dappnodeDepositContract.addressToIncentive(wallet.address) // returns struct {endTime, isClaimed}
+
+    const isClaimed = addressToIncentive.isClaimed
+    const endTime = parseInt(addressToIncentive.endTime)
+
+    if (isClaimed) throw Error('Address has already been claimed')
+    if (endTime === 0) throw Error('Address is not whitelisted')
+    if (endTime < Date.now()) throw Error('Address has expired')
+  }, [wallet, tokenInfo])
 
   const setDappNodeDepositData = useCallback(async (fileData, filename) => {
     setFilename(filename)
@@ -91,24 +106,10 @@ function useDappNodeDeposit(wallet, tokenInfo) {
   const dappNodeDeposit = useCallback(async () => {
     try {
       setTxData({ status: 'loading' })
-
+      console.log(`Sending deposit transaction for ${deposits.length} deposits`)
       // DAppNode incentive deposit contract: https://blockscout.com/xdai/mainnet/address/0x6C68322cf55f5f025F2aebd93a28761182d077c3/write-proxy
       // Must be called with the same tx data as the deposit contract
       const dappnodeDepositContract = new Contract(process.env.REACT_APP_DAPPNODE_DEPOSIT_CONTRACT_ADDRESS, dappnodeDepositABI, wallet.provider.getSigner(0))
-
-      // Check requirements: address is whitelisted and must not be expired
-
-     // addressToIncentive: https://blockscout.com/xdai/mainnet/address/0x6C68322cf55f5f025F2aebd93a28761182d077c3/contracts
-      const addressToIncentive = await dappnodeDepositContract.addressToIncentive(wallet.address) // returns struct {endTime, isClaimed}
-
-      const isClaimed = addressToIncentive.isClaimed
-      const endTime = parseInt(addressToIncentive.endTime)
-
-      if (isClaimed) throw Error("Address has already been claimed")
-      if (endTime === 0) throw Error("Address is not whitelisted")
-      if (endTime < Date.now()) throw Error("Address has expired")
-
-      console.log(`Sending deposit transaction for ${deposits.length} deposits`)
       let data = '0x'
       data += deposits[0].withdrawal_credentials
       deposits.forEach(deposit => {
