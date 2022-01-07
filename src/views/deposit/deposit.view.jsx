@@ -92,8 +92,14 @@ function Deposit ({ wallet, onDisconnectWallet, tokenInfo, balance, depositData,
         title='Gnosis Beacon Chain Deposit'
         onDisconnectWallet={onDisconnectWallet}
         tokenInfo={tokenInfo}
-        balance={balance}
-                  /> : <DappnodeHeader address={wallet.address} title='DAppNode incentive program' onDisconnectWallet={onDisconnectWallet} balance={balance} tokenInfo={tokenInfo} dappnodeWhitelist={dappnodeWhitelist} />}
+        balance={balance} /> 
+        : 
+        <DappnodeHeader 
+        address={wallet.address}
+        title='DAppNode incentive program' 
+        onDisconnectWallet={onDisconnectWallet} 
+        balance={balance} tokenInfo={tokenInfo} 
+        dappnodeWhitelist={dappnodeWhitelist} />}
       {component}
     </div>
   )

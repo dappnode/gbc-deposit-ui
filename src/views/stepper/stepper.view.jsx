@@ -24,19 +24,21 @@ import DepositTxPending from '../deposit-tx-pending/deposit-tx-pending.view'
 import DepositTxOverview from '../deposit-tx-overview/deposit-tx-overview.view'
 import DepositRisksInfo from '../deposit-risks-info/deposit-risks-info.view'
 import useDappnodeWhitelist from '../../hooks/use-dappnode-whitelist'
+import useDappnodeContract from '../../hooks/use-dappnode-contract'
 
 function Stepper () {
   const classes = useStepperStyles()
   const { wallet, loadWallet, disconnectWallet, isMetamask, switchChainInMetaMask } = useWallet()
   const swapContract = useSwapContract(wallet)
   const { swapRatio } = useSwapContractInfo(wallet)
+  const dappnodeContract = useDappnodeContract(process.env.REACT_APP_DAPPNODE_CONTRACT_ADDRESS, wallet)
   const fromTokenContract = useTokenContract(process.env.REACT_APP_TOKEN_CONTRACT_ADDRESS, wallet)
   const toTokenContract = useTokenContract(process.env.REACT_APP_WRAPPED_TOKEN_CONTRACT_ADDRESS, wallet)
   const fromTokenInfo = useTokenInfo(process.env.REACT_APP_TOKEN_CONTRACT_ADDRESS, wallet)
   const toTokenInfo = useTokenInfo(process.env.REACT_APP_WRAPPED_TOKEN_CONTRACT_ADDRESS, wallet)
   const toTokenBalance = useTokenBalance(wallet?.address, toTokenContract)
   const fromTokenBalance = useTokenBalance(wallet?.address, fromTokenContract)
-  const dappnodeWhitelist = useDappnodeWhitelist(process.env.REACT_APP_DAPPNODE_CONTRACT_ADDRESS, wallet)
+  const dappnodeWhitelist = useDappnodeWhitelist(wallet?.address, dappnodeContract)
   const { step, switchStep } = useStep()
   const { swap, data: swapData, resetData: resetSwapData } = useSwap()
   const {

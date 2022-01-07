@@ -14,15 +14,15 @@ const useDappnodeHeaderStyles = createUseStyles((theme) => ({
     fontSize: theme.spacing(3),
     fontWeight: theme.fontWeights.bold
   },
-  dappnodeWhitelist: {
+  address: {
     marginTop: theme.spacing(2),
     fontSize: theme.spacing(2.5),
     color: theme.palette.grey.dark
   },
-  balance: {
-    marginTop: theme.spacing(1),
-    fontSize: theme.spacing(2),
-    color: theme.palette.black
+  dappnodeWhitelist: {
+    marginTop: theme.spacing(2),
+    fontSize: theme.spacing(2.5),
+    color: theme.palette.grey.dark
   },
   goBackButton: {
     position: 'absolute',

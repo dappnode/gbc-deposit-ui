@@ -44,7 +44,7 @@ function DappnodeHeader ({
       )}
       {dappnodeWhitelist && (
           <p className={classes.dappnodeWhitelist}>Whitelisted: {dappnodeWhitelist.isWhitelisted}. {dappnodeWhitelist.message}</p>
-    )}
+      )}
       {onDisconnectWallet && (
         <button className={classes.disconnectButton} onClick={onDisconnectWallet}>Disconnect</button>
       )}

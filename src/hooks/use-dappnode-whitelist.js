@@ -1,17 +1,14 @@
 
 import { useEffect, useState } from 'react'
 
-import useDappnodeContract from './use-dappnode-contract'
-
-function useDappnodeWhitelist (address, provider) {
-  const contract = useDappnodeContract(address, provider)
+function useDappnodeWhitelist (address, contract) {
   const [dappnodeWhitelist, setDappnodeWhitelist] = useState()
 
   useEffect(() => {
     const getDappnodeWhitelist = async (contract) => {
     // Check requirements: address is whitelisted and must not be expired
     // addressToIncentive: https://blockscout.com/xdai/mainnet/address/0x6C68322cf55f5f025F2aebd93a28761182d077c3/contracts
-      const addressToIncentive = await contract.addressToIncentive(provider.address) // returns struct {endTime, isClaimed}
+      const addressToIncentive = await contract.addressToIncentive(address) // returns struct {endTime, isClaimed}
 
       const isClaimed = addressToIncentive.isClaimed
       const endTime = parseInt(addressToIncentive.endTime)
@@ -22,10 +19,12 @@ function useDappnodeWhitelist (address, provider) {
       return { isWhitelisted: true, message: 'Address is whitelisted' }
     }
 
-    if (contract) {
+    if (address && contract) {
       getDappnodeWhitelist(contract).then(setDappnodeWhitelist).catch(() => setDappnodeWhitelist())
+    } else {
+      setDappnodeWhitelist()
     }
-  }, [contract, provider])
+  }, [address, contract])
 
   return dappnodeWhitelist
 }
