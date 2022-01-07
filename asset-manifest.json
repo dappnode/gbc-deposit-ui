@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.js": "/gbc-deposit-ui/static/js/main.a78038e0.chunk.js",
+    "main.js.map": "/gbc-deposit-ui/static/js/main.a78038e0.chunk.js.map",
+    "runtime-main.js": "/gbc-deposit-ui/static/js/runtime-main.0413fda3.js",
+    "runtime-main.js.map": "/gbc-deposit-ui/static/js/runtime-main.0413fda3.js.map",
+    "static/js/2.6d8a2055.chunk.js": "/gbc-deposit-ui/static/js/2.6d8a2055.chunk.js",
+    "static/js/2.6d8a2055.chunk.js.map": "/gbc-deposit-ui/static/js/2.6d8a2055.chunk.js.map",
+    "static/js/3.93704fa1.chunk.js": "/gbc-deposit-ui/static/js/3.93704fa1.chunk.js",
+    "static/js/3.93704fa1.chunk.js.map": "/gbc-deposit-ui/static/js/3.93704fa1.chunk.js.map",
+    "index.html": "/gbc-deposit-ui/index.html",
+    "static/js/2.6d8a2055.chunk.js.LICENSE.txt": "/gbc-deposit-ui/static/js/2.6d8a2055.chunk.js.LICENSE.txt",
+    "static/media/arrow-left.526ad39f.svg": "/gbc-deposit-ui/static/media/arrow-left.526ad39f.svg",
+    "static/media/check-icon-small.cf4386c3.svg": "/gbc-deposit-ui/static/media/check-icon-small.cf4386c3.svg",
+    "static/media/check-icon.90ea2740.svg": "/gbc-deposit-ui/static/media/check-icon.90ea2740.svg",
+    "static/media/coinbase.3cbec38e.png": "/gbc-deposit-ui/static/media/coinbase.3cbec38e.png",
+    "static/media/cross-icon.61d3040a.svg": "/gbc-deposit-ui/static/media/cross-icon.61d3040a.svg",
+    "static/media/info-icon.27025be9.svg": "/gbc-deposit-ui/static/media/info-icon.27025be9.svg",
+    "static/media/link-icon.42475fc7.svg": "/gbc-deposit-ui/static/media/link-icon.42475fc7.svg",
+    "static/media/metamask-fox.7db94670.svg": "/gbc-deposit-ui/static/media/metamask-fox.7db94670.svg",
+    "static/media/metamask-logo.1d81eebf.svg": "/gbc-deposit-ui/static/media/metamask-logo.1d81eebf.svg",
+    "static/media/plus-circle.7b56014a.svg": "/gbc-deposit-ui/static/media/plus-circle.7b56014a.svg",
+    "static/media/replace-icon.974fbdff.svg": "/gbc-deposit-ui/static/media/replace-icon.974fbdff.svg",
+    "static/media/switch-network.ad1670f9.svg": "/gbc-deposit-ui/static/media/switch-network.ad1670f9.svg",
+    "static/media/walletconnect.a4166a89.svg": "/gbc-deposit-ui/static/media/walletconnect.a4166a89.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0413fda3.js",
+    "static/js/2.6d8a2055.chunk.js",
+    "static/js/main.a78038e0.chunk.js"
+  ]
+}
