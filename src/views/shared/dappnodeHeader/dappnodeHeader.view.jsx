@@ -1,6 +1,7 @@
 import useDappnodeHeaderStyles from './dappnodeHeader.styles'
 import { ReactComponent as ArrowLeft } from '../../../images/arrow-left.svg'
 import { ReactComponent as CrossIcon } from '../../../images/cross-icon.svg'
+import infoIcon from '../../../images/info-icon.svg'
 
 function DappnodeHeader ({
   address, title, isGoBackButtonDisabled,
@@ -38,7 +39,18 @@ function DappnodeHeader ({
           <CrossIcon className={classes.closeIcon} />
         </button>
       )}
-      <p className={classes.title}>{title}</p>
+      <span className={classes.title}>
+        {title}{' '}
+        <a
+          href="https://medium.com/dappnode/dappnode-and-gnosis-chain-node-incentive-program-73af7d2084f8"
+          target='_blank'
+          rel='noopener noreferrer'
+          data-tip="How to generate deposit_data.json?"
+          onClick={e => { e.stopPropagation() }}
+        >
+          <img alt="" className={classes.infoIcon} src={infoIcon} />
+        </a>
+      </span>
       {address && (
         <p className={classes.address}>{getPartiallyHiddenEthereumAddress(address)}</p>
       )}
