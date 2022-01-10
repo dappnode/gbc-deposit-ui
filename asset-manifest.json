@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/gbc-deposit-ui/static/js/main.73a644a6.chunk.js",
-    "main.js.map": "/gbc-deposit-ui/static/js/main.73a644a6.chunk.js.map",
+    "main.js": "/gbc-deposit-ui/static/js/main.6a0a84ff.chunk.js",
+    "main.js.map": "/gbc-deposit-ui/static/js/main.6a0a84ff.chunk.js.map",
     "runtime-main.js": "/gbc-deposit-ui/static/js/runtime-main.0413fda3.js",
     "runtime-main.js.map": "/gbc-deposit-ui/static/js/runtime-main.0413fda3.js.map",
-    "static/js/2.d8e85741.chunk.js": "/gbc-deposit-ui/static/js/2.d8e85741.chunk.js",
-    "static/js/2.d8e85741.chunk.js.map": "/gbc-deposit-ui/static/js/2.d8e85741.chunk.js.map",
+    "static/js/2.4e20753d.chunk.js": "/gbc-deposit-ui/static/js/2.4e20753d.chunk.js",
+    "static/js/2.4e20753d.chunk.js.map": "/gbc-deposit-ui/static/js/2.4e20753d.chunk.js.map",
     "static/js/3.93704fa1.chunk.js": "/gbc-deposit-ui/static/js/3.93704fa1.chunk.js",
     "static/js/3.93704fa1.chunk.js.map": "/gbc-deposit-ui/static/js/3.93704fa1.chunk.js.map",
     "index.html": "/gbc-deposit-ui/index.html",
-    "static/js/2.d8e85741.chunk.js.LICENSE.txt": "/gbc-deposit-ui/static/js/2.d8e85741.chunk.js.LICENSE.txt",
+    "static/js/2.4e20753d.chunk.js.LICENSE.txt": "/gbc-deposit-ui/static/js/2.4e20753d.chunk.js.LICENSE.txt",
     "static/media/arrow-left.526ad39f.svg": "/gbc-deposit-ui/static/media/arrow-left.526ad39f.svg",
     "static/media/check-icon-small.cf4386c3.svg": "/gbc-deposit-ui/static/media/check-icon-small.cf4386c3.svg",
     "static/media/check-icon.90ea2740.svg": "/gbc-deposit-ui/static/media/check-icon.90ea2740.svg",
@@ -22,11 +22,12 @@
     "static/media/plus-circle.7b56014a.svg": "/gbc-deposit-ui/static/media/plus-circle.7b56014a.svg",
     "static/media/replace-icon.974fbdff.svg": "/gbc-deposit-ui/static/media/replace-icon.974fbdff.svg",
     "static/media/switch-network.ad1670f9.svg": "/gbc-deposit-ui/static/media/switch-network.ad1670f9.svg",
-    "static/media/walletconnect.a4166a89.svg": "/gbc-deposit-ui/static/media/walletconnect.a4166a89.svg"
+    "static/media/walletconnect.a4166a89.svg": "/gbc-deposit-ui/static/media/walletconnect.a4166a89.svg",
+    "static/media/wrong-icon-small.38e56ba2.svg": "/gbc-deposit-ui/static/media/wrong-icon-small.38e56ba2.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.0413fda3.js",
-    "static/js/2.d8e85741.chunk.js",
-    "static/js/main.73a644a6.chunk.js"
+    "static/js/2.4e20753d.chunk.js",
+    "static/js/main.6a0a84ff.chunk.js"
   ]
 }
