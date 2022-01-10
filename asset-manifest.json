@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/gbc-deposit-ui/static/js/main.6a0a84ff.chunk.js",
-    "main.js.map": "/gbc-deposit-ui/static/js/main.6a0a84ff.chunk.js.map",
+    "main.js": "/gbc-deposit-ui/static/js/main.368cebf7.chunk.js",
+    "main.js.map": "/gbc-deposit-ui/static/js/main.368cebf7.chunk.js.map",
     "runtime-main.js": "/gbc-deposit-ui/static/js/runtime-main.0413fda3.js",
     "runtime-main.js.map": "/gbc-deposit-ui/static/js/runtime-main.0413fda3.js.map",
     "static/js/2.4e20753d.chunk.js": "/gbc-deposit-ui/static/js/2.4e20753d.chunk.js",
@@ -28,6 +28,6 @@
   "entrypoints": [
     "static/js/runtime-main.0413fda3.js",
     "static/js/2.4e20753d.chunk.js",
-    "static/js/main.6a0a84ff.chunk.js"
+    "static/js/main.368cebf7.chunk.js"
   ]
 }
